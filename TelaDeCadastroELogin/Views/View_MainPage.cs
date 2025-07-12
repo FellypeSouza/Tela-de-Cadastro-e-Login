@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TelaDeCadastroELogin.Controllers;
 
 namespace TelaDeCadastroELogin
 {
@@ -30,6 +31,12 @@ namespace TelaDeCadastroELogin
         private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void conexao_Click(object sender, EventArgs e)
+        {
+            Ctr_User Ctr_User = new Ctr_User();
+            Ctr_User.StartConnection();
         }
     }
 }

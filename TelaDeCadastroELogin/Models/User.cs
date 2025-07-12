@@ -8,5 +8,7 @@ namespace TelaDeCadastroELogin.Models
 {
     internal class User
     {
+        private string name;
+        private string password;
     }
 }

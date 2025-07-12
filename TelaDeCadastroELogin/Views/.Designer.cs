@@ -38,6 +38,7 @@
             this.showPasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.registerUserButton = new System.Windows.Forms.Button();
             this.clearInputDataButton = new System.Windows.Forms.Button();
+            this.conexao = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -158,11 +159,22 @@
             this.clearInputDataButton.UseVisualStyleBackColor = false;
             this.clearInputDataButton.Click += new System.EventHandler(this.clearInputDataButton_Click);
             // 
+            // conexao
+            // 
+            this.conexao.Location = new System.Drawing.Point(200, 36);
+            this.conexao.Name = "conexao";
+            this.conexao.Size = new System.Drawing.Size(75, 23);
+            this.conexao.TabIndex = 10;
+            this.conexao.Text = "conexao";
+            this.conexao.UseVisualStyleBackColor = true;
+            this.conexao.Click += new System.EventHandler(this.conexao_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(287, 391);
+            this.Controls.Add(this.conexao);
             this.Controls.Add(this.clearInputDataButton);
             this.Controls.Add(this.registerUserButton);
             this.Controls.Add(this.showPasswordCheckBox);
@@ -194,6 +206,7 @@
         private System.Windows.Forms.CheckBox showPasswordCheckBox;
         private System.Windows.Forms.Button registerUserButton;
         private System.Windows.Forms.Button clearInputDataButton;
+        private System.Windows.Forms.Button conexao;
     }
 }
 
