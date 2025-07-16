@@ -168,6 +168,12 @@
   <ItemGroup>
     <Compile Include="Controllers\Ctr_User.cs" />
     <Compile Include="DAO\Dao_User.cs" />
+    <Compile Include="Views\UserInfoPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserInfoPage.Designer.cs">
+      <DependentUpon>UserInfoPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\View_MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\UserInfoPage.resx">
+      <DependentUpon>UserInfoPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\View_MainPage.resx">
       <DependentUpon>View_MainPage.cs</DependentUpon>
     </EmbeddedResource>

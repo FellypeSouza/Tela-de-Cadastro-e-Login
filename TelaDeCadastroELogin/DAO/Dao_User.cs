@@ -5,32 +5,80 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using TelaDeCadastroELogin.Models;
 
 namespace TelaDeCadastroELogin.DAO
 {
     internal class Dao_User
     {
-        public void StartConnection()
+        private SqlConnection connection;
+        private string connectionString = "Data Source=DESKTOP-CRUVIUA\\SQLEXPRESS;Initial Catalog=TelaDeCadastroELoginDb;Integrated Security=True";
+        public Dao_User(string connectionString)
         {
-            try
+            //Conexão com o banco de dados
+            connection = new SqlConnection(connectionString);
+        }
+        
+        public void RegisterNewUser(User user)
+        {
+            using(SqlConnection conn = new SqlConnection(connectionString))
             {
-                string connectionString = "Data Source=DESKTOP-CRUVIUA\\SQLEXPRESS;Initial Catalog=TelaDeCadastroELoginDb;Integrated Security=True";
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                MessageBox.Show("Sucesso");
+                string query = "INSERT INTO Usuario (IdUser,username, password, registrationDate) VALUES (@id, @usuarioNome, @usuarioSenha, @date)";
+                
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.Add(new SqlParameter("@id", user.GetId()));
+                cmd.Parameters.Add(new SqlParameter("@usuarioNome", user.GetName()));
+                cmd.Parameters.Add(new SqlParameter("@usuarioSenha", user.GetPassword()));
+                cmd.Parameters.Add(new SqlParameter("@date", DateTime.Now));
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: "+ex);
+                }
             }
-            catch(Exception error)
+        }
+        
+        public User ReadUser(User user)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                MessageBox.Show("Erro: " +error);
+                string query = "SELECT * FROM Usuario WHERE IdUser = @id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.Add(new SqlParameter("@id", user.GetId()));
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        user.SetId(Convert.ToString(dr["IdUser"]));
+                        user.SetName(Convert.ToString(dr["username"]));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    conn.Close();
+                    MessageBox.Show(user.GetName(), user.GetId());
+                    return user;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex);
+                    return null;
+                }
             }
         }
-        public void registerUser()
-        {
-
-        }
-        public Dao_User()
-        {
-
-        }
+         
     }
 }

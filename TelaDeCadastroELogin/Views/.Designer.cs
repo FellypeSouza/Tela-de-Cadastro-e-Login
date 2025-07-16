@@ -38,7 +38,6 @@
             this.showPasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.registerUserButton = new System.Windows.Forms.Button();
             this.clearInputDataButton = new System.Windows.Forms.Button();
-            this.conexao = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -67,22 +66,24 @@
             // 
             this.usernameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.usernameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.usernameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.usernameInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.usernameInput.Location = new System.Drawing.Point(44, 96);
+            this.usernameInput.MaximumSize = new System.Drawing.Size(300, 100);
             this.usernameInput.Name = "usernameInput";
-            this.usernameInput.Size = new System.Drawing.Size(200, 26);
+            this.usernameInput.Size = new System.Drawing.Size(200, 16);
             this.usernameInput.TabIndex = 2;
             // 
             // passwordInput
             // 
             this.passwordInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.passwordInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.passwordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.passwordInput.Location = new System.Drawing.Point(44, 153);
             this.passwordInput.Name = "passwordInput";
-            this.passwordInput.Size = new System.Drawing.Size(200, 26);
+            this.passwordInput.Size = new System.Drawing.Size(200, 16);
             this.passwordInput.TabIndex = 4;
+            this.passwordInput.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -99,11 +100,13 @@
             // 
             this.confirmPasswordInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.confirmPasswordInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.confirmPasswordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.confirmPasswordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.confirmPasswordInput.Location = new System.Drawing.Point(44, 212);
+            this.confirmPasswordInput.MaximumSize = new System.Drawing.Size(300, 100);
             this.confirmPasswordInput.Name = "confirmPasswordInput";
-            this.confirmPasswordInput.Size = new System.Drawing.Size(200, 26);
+            this.confirmPasswordInput.Size = new System.Drawing.Size(200, 16);
             this.confirmPasswordInput.TabIndex = 6;
+            this.confirmPasswordInput.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -159,22 +162,11 @@
             this.clearInputDataButton.UseVisualStyleBackColor = false;
             this.clearInputDataButton.Click += new System.EventHandler(this.clearInputDataButton_Click);
             // 
-            // conexao
-            // 
-            this.conexao.Location = new System.Drawing.Point(200, 36);
-            this.conexao.Name = "conexao";
-            this.conexao.Size = new System.Drawing.Size(75, 23);
-            this.conexao.TabIndex = 10;
-            this.conexao.Text = "conexao";
-            this.conexao.UseVisualStyleBackColor = true;
-            this.conexao.Click += new System.EventHandler(this.conexao_Click);
-            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(287, 391);
-            this.Controls.Add(this.conexao);
             this.Controls.Add(this.clearInputDataButton);
             this.Controls.Add(this.registerUserButton);
             this.Controls.Add(this.showPasswordCheckBox);
@@ -206,7 +198,6 @@
         private System.Windows.Forms.CheckBox showPasswordCheckBox;
         private System.Windows.Forms.Button registerUserButton;
         private System.Windows.Forms.Button clearInputDataButton;
-        private System.Windows.Forms.Button conexao;
     }
 }
 
