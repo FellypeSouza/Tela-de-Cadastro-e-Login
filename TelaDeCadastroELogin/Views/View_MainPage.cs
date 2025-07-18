@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TelaDeCadastroELogin.Controllers;
 using TelaDeCadastroELogin.Models;
+using TelaDeCadastroELogin.Views;
 
 namespace TelaDeCadastroELogin
 {
@@ -37,8 +38,9 @@ namespace TelaDeCadastroELogin
 
                     Ctr_User = new Ctr_User();
                     Ctr_User.RegisterNewUser(User);
-                    Ctr_User.ReadUser(User);
 
+                    UserInfoPage UserInfoPage = new UserInfoPage(Ctr_User.ReadUser(User));
+                    UserInfoPage.ShowDialog();
                 }
                 else
                 {

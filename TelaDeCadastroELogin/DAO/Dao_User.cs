@@ -30,7 +30,7 @@ namespace TelaDeCadastroELogin.DAO
                 cmd.Parameters.Add(new SqlParameter("@id", user.GetId()));
                 cmd.Parameters.Add(new SqlParameter("@usuarioNome", user.GetName()));
                 cmd.Parameters.Add(new SqlParameter("@usuarioSenha", user.GetPassword()));
-                cmd.Parameters.Add(new SqlParameter("@date", DateTime.Now));
+                cmd.Parameters.Add(new SqlParameter("@date", user.GetDate()));
 
                 try
                 {
@@ -49,7 +49,7 @@ namespace TelaDeCadastroELogin.DAO
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Usuario WHERE IdUser = @id";
+                string query = "SELECT * FROM Usuario WHERE idUser = @id";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -61,7 +61,7 @@ namespace TelaDeCadastroELogin.DAO
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        user.SetId(Convert.ToString(dr["IdUser"]));
+                        user.SetId(Convert.ToString(dr["idUser"]));
                         user.SetName(Convert.ToString(dr["username"]));
                     }
                     else
@@ -69,7 +69,6 @@ namespace TelaDeCadastroELogin.DAO
                         return null;
                     }
                     conn.Close();
-                    MessageBox.Show(user.GetName(), user.GetId());
                     return user;
                 }
                 catch(Exception ex)
@@ -79,6 +78,32 @@ namespace TelaDeCadastroELogin.DAO
                 }
             }
         }
-         
+        public void AlterPassword(User User)
+        {
+            using(SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Usuario SET password = @newPassword WHERE idUser = @id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.Add(new SqlParameter("@newPassword", User.GetPassword()));
+                cmd.Parameters.Add(new SqlParameter("@id", User.GetId()));
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex);
+                }
+            }
+        }
+        public void AlterData(User User)
+        {
+
+        }
     }
 }

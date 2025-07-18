@@ -100,3 +100,4 @@ C:\Users\Fellype\source\repos\TelaDeCadastroELogin\TelaDeCadastroELogin\obj\Debu
 C:\Users\Fellype\source\repos\TelaDeCadastroELogin\TelaDeCadastroELogin\obj\Debug\TelaDeCadastroELogin.pdb
 C:\Users\Fellype\source\repos\TelaDeCadastroELogin\TelaDeCadastroELogin\obj\Debug\TelaDeCadastroELogin.exe.config
 C:\Users\Fellype\source\repos\TelaDeCadastroELogin\TelaDeCadastroELogin\obj\Debug\TelaDeCadastroELogin.MainPage.resources
+C:\Users\Fellype\source\repos\TelaDeCadastroELogin\TelaDeCadastroELogin\obj\Debug\TelaDeCadastroELogin.Views.UserInfoPage.resources
