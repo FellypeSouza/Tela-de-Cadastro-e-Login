@@ -103,7 +103,27 @@ namespace TelaDeCadastroELogin.DAO
         }
         public void AlterData(User User)
         {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Usuario SET username = @newUsername WHERE idUser = @id";
 
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.Add(new SqlParameter("@newUsername", User.GetName()));
+                cmd.Parameters.Add(new SqlParameter("@id", User.GetId()));
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Dados alterados com sucesso");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex);
+                }
+            }
         }
     }
 }

@@ -43,7 +43,7 @@ namespace TelaDeCadastroELogin.Views
 
         private void alterDataButton_Click(object sender, EventArgs e)
         {
-
+            alterDataPanel.Visible = true;
         }
 
         private void DeleteUser_Click(object sender, EventArgs e)
@@ -93,6 +93,36 @@ namespace TelaDeCadastroELogin.Views
                 else
                 {
                     MessageBox.Show("Houve um erro");
+                }
+            }
+        }
+
+        private void sendNewData_Click(object sender, EventArgs e)
+        {
+            if (passwordTextbox.Text == "" || newUsernameTextbox.Text == "")
+            {
+                MessageBox.Show("Inputs vazios");
+            }
+            else
+            {
+                if (passwordTextbox.Text == user.GetPassword())
+                {
+                    user.SetName(newUsernameTextbox.Text);
+
+                    if (user.GetPassword() == passwordTextbox.Text)
+                    {
+                        Ctr_User.AlterData(user);
+
+                        alterDataPanel.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Houve um erro");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Senha incorreta");
                 }
             }
         }
