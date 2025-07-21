@@ -23,7 +23,7 @@ namespace TelaDeCadastroELogin.DAO
         {
             using(SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Usuario (IdUser,username, password, registrationDate) VALUES (@id, @usuarioNome, @usuarioSenha, @date)";
+                string query = "INSERT INTO Usuario (IdUser,username, passwordHash, registrationDate) VALUES (@id, @usuarioNome, CONVERT(VARBINARY(64), @usuarioSenha), @date)";
                 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -82,7 +82,7 @@ namespace TelaDeCadastroELogin.DAO
         {
             using(SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Usuario SET password = @newPassword WHERE idUser = @id";
+                string query = "UPDATE Usuario SET passwordHash = CONVERT(VARBINARY(64), @newPassword) WHERE idUser = @id";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -120,6 +120,30 @@ namespace TelaDeCadastroELogin.DAO
                     MessageBox.Show("Dados alterados com sucesso");
                 }
                 catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex);
+                }
+            }
+        }
+        public void DeleteUser(User User)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Usuario WHERE idUser = @id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.Add(new SqlParameter("@id", User.GetId()));
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Usuário excluído com sucesso");
+                    Application.Exit();
+                }
+                catch(Exception ex)
                 {
                     MessageBox.Show("Erro: " + ex);
                 }

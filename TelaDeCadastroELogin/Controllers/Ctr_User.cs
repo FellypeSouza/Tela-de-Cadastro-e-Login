@@ -38,6 +38,12 @@ namespace TelaDeCadastroELogin.Controllers
             Dao_User = new Dao_User("Data Source=DESKTOP-CRUVIUA\\SQLEXPRESS;Initial Catalog=TelaDeCadastroELoginDb;Integrated Security=True");
             Dao_User.AlterData(user);
         }
+
+        public void DeleteUser(User user)
+        {
+            Dao_User = new Dao_User("Data Source=DESKTOP-CRUVIUA\\SQLEXPRESS;Initial Catalog=TelaDeCadastroELoginDb;Integrated Security=True");
+            Dao_User.DeleteUser(user);
+        }
         public Ctr_User()
         {
 

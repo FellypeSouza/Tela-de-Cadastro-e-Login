@@ -36,7 +36,7 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.alterPasswordButton = new System.Windows.Forms.Button();
             this.alterDataButton = new System.Windows.Forms.Button();
-            this.DeleteUser = new System.Windows.Forms.Button();
+            this.DeleteUserButton = new System.Windows.Forms.Button();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.checkPasswordPanel = new System.Windows.Forms.Panel();
             this.checkPassword = new System.Windows.Forms.Button();
@@ -47,14 +47,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.newUserPasswordTextbox = new System.Windows.Forms.TextBox();
             this.alterDataPanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.passwordTextbox = new System.Windows.Forms.TextBox();
+            this.sendNewData = new System.Windows.Forms.Button();
             this.newUsernameTextbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.sendNewData = new System.Windows.Forms.Button();
+            this.passwordTextbox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.deleteUserPanel = new System.Windows.Forms.Panel();
+            this.deleteUserCheck = new System.Windows.Forms.CheckBox();
+            this.deleteUser = new System.Windows.Forms.Button();
+            this.userPasswordTextbox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.checkPasswordPanel.SuspendLayout();
             this.alterUserPasswordPanel.SuspendLayout();
             this.alterDataPanel.SuspendLayout();
+            this.deleteUserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +90,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(8, 104);
+            this.label3.Location = new System.Drawing.Point(10, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 17);
             this.label3.TabIndex = 4;
@@ -117,7 +123,7 @@
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dateLabel.Location = new System.Drawing.Point(122, 104);
+            this.dateLabel.Location = new System.Drawing.Point(124, 98);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(80, 17);
             this.dateLabel.TabIndex = 10;
@@ -153,20 +159,20 @@
             this.alterDataButton.UseVisualStyleBackColor = false;
             this.alterDataButton.Click += new System.EventHandler(this.alterDataButton_Click);
             // 
-            // DeleteUser
+            // DeleteUserButton
             // 
-            this.DeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.DeleteUser.FlatAppearance.BorderSize = 0;
-            this.DeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteUser.Location = new System.Drawing.Point(11, 294);
-            this.DeleteUser.Name = "DeleteUser";
-            this.DeleteUser.Size = new System.Drawing.Size(249, 26);
-            this.DeleteUser.TabIndex = 13;
-            this.DeleteUser.Text = "EXCLUIR CONTA";
-            this.DeleteUser.UseVisualStyleBackColor = false;
-            this.DeleteUser.Click += new System.EventHandler(this.DeleteUser_Click);
+            this.DeleteUserButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DeleteUserButton.FlatAppearance.BorderSize = 0;
+            this.DeleteUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteUserButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteUserButton.Location = new System.Drawing.Point(11, 294);
+            this.DeleteUserButton.Name = "DeleteUserButton";
+            this.DeleteUserButton.Size = new System.Drawing.Size(249, 26);
+            this.DeleteUserButton.TabIndex = 13;
+            this.DeleteUserButton.Text = "EXCLUIR CONTA";
+            this.DeleteUserButton.UseVisualStyleBackColor = false;
+            this.DeleteUserButton.Click += new System.EventHandler(this.DeleteUserButton_Click);
             // 
             // usernameLabel
             // 
@@ -185,7 +191,7 @@
             this.checkPasswordPanel.Controls.Add(this.checkPassword);
             this.checkPasswordPanel.Controls.Add(this.label5);
             this.checkPasswordPanel.Controls.Add(this.checkPasswordTextbox);
-            this.checkPasswordPanel.Location = new System.Drawing.Point(34, 134);
+            this.checkPasswordPanel.Location = new System.Drawing.Point(33, 166);
             this.checkPasswordPanel.Name = "checkPasswordPanel";
             this.checkPasswordPanel.Size = new System.Drawing.Size(200, 100);
             this.checkPasswordPanel.TabIndex = 15;
@@ -228,7 +234,7 @@
             this.alterUserPasswordPanel.Controls.Add(this.sendNewPassword);
             this.alterUserPasswordPanel.Controls.Add(this.label6);
             this.alterUserPasswordPanel.Controls.Add(this.newUserPasswordTextbox);
-            this.alterUserPasswordPanel.Location = new System.Drawing.Point(34, 134);
+            this.alterUserPasswordPanel.Location = new System.Drawing.Point(33, 166);
             this.alterUserPasswordPanel.Name = "alterUserPasswordPanel";
             this.alterUserPasswordPanel.Size = new System.Drawing.Size(200, 100);
             this.alterUserPasswordPanel.TabIndex = 16;
@@ -273,27 +279,26 @@
             this.alterDataPanel.Controls.Add(this.label8);
             this.alterDataPanel.Controls.Add(this.passwordTextbox);
             this.alterDataPanel.Controls.Add(this.label7);
-            this.alterDataPanel.Location = new System.Drawing.Point(34, 98);
+            this.alterDataPanel.Location = new System.Drawing.Point(33, 130);
             this.alterDataPanel.Name = "alterDataPanel";
             this.alterDataPanel.Size = new System.Drawing.Size(200, 136);
             this.alterDataPanel.TabIndex = 17;
             this.alterDataPanel.Visible = false;
             // 
-            // label7
+            // sendNewData
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(59, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Insira sua senha";
-            // 
-            // passwordTextbox
-            // 
-            this.passwordTextbox.Location = new System.Drawing.Point(13, 24);
-            this.passwordTextbox.Name = "passwordTextbox";
-            this.passwordTextbox.Size = new System.Drawing.Size(171, 20);
-            this.passwordTextbox.TabIndex = 1;
+            this.sendNewData.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.sendNewData.FlatAppearance.BorderSize = 0;
+            this.sendNewData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendNewData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendNewData.ForeColor = System.Drawing.SystemColors.Control;
+            this.sendNewData.Location = new System.Drawing.Point(43, 95);
+            this.sendNewData.Name = "sendNewData";
+            this.sendNewData.Size = new System.Drawing.Size(114, 26);
+            this.sendNewData.TabIndex = 18;
+            this.sendNewData.Text = "ENVIAR";
+            this.sendNewData.UseVisualStyleBackColor = false;
+            this.sendNewData.Click += new System.EventHandler(this.sendNewData_Click);
             // 
             // newUsernameTextbox
             // 
@@ -311,31 +316,87 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Insira seu novo nome";
             // 
-            // sendNewData
+            // passwordTextbox
             // 
-            this.sendNewData.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.sendNewData.FlatAppearance.BorderSize = 0;
-            this.sendNewData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendNewData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendNewData.ForeColor = System.Drawing.SystemColors.Control;
-            this.sendNewData.Location = new System.Drawing.Point(43, 95);
-            this.sendNewData.Name = "sendNewData";
-            this.sendNewData.Size = new System.Drawing.Size(114, 26);
-            this.sendNewData.TabIndex = 18;
-            this.sendNewData.Text = "ENVIAR";
-            this.sendNewData.UseVisualStyleBackColor = false;
-            this.sendNewData.Click += new System.EventHandler(this.sendNewData_Click);
+            this.passwordTextbox.Location = new System.Drawing.Point(13, 24);
+            this.passwordTextbox.Name = "passwordTextbox";
+            this.passwordTextbox.Size = new System.Drawing.Size(171, 20);
+            this.passwordTextbox.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(59, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Insira sua senha";
+            // 
+            // deleteUserPanel
+            // 
+            this.deleteUserPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deleteUserPanel.Controls.Add(this.deleteUserCheck);
+            this.deleteUserPanel.Controls.Add(this.deleteUser);
+            this.deleteUserPanel.Controls.Add(this.userPasswordTextbox);
+            this.deleteUserPanel.Controls.Add(this.label10);
+            this.deleteUserPanel.Location = new System.Drawing.Point(33, 126);
+            this.deleteUserPanel.Name = "deleteUserPanel";
+            this.deleteUserPanel.Size = new System.Drawing.Size(200, 108);
+            this.deleteUserPanel.TabIndex = 18;
+            this.deleteUserPanel.Visible = false;
+            // 
+            // deleteUserCheck
+            // 
+            this.deleteUserCheck.AutoSize = true;
+            this.deleteUserCheck.Location = new System.Drawing.Point(13, 50);
+            this.deleteUserCheck.Name = "deleteUserCheck";
+            this.deleteUserCheck.Size = new System.Drawing.Size(145, 17);
+            this.deleteUserCheck.TabIndex = 19;
+            this.deleteUserCheck.Text = "Confirmação de exclusão";
+            this.deleteUserCheck.UseVisualStyleBackColor = true;
+            // 
+            // deleteUser
+            // 
+            this.deleteUser.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.deleteUser.FlatAppearance.BorderSize = 0;
+            this.deleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.deleteUser.Location = new System.Drawing.Point(43, 72);
+            this.deleteUser.Name = "deleteUser";
+            this.deleteUser.Size = new System.Drawing.Size(114, 26);
+            this.deleteUser.TabIndex = 18;
+            this.deleteUser.Text = "ENVIAR";
+            this.deleteUser.UseVisualStyleBackColor = false;
+            this.deleteUser.Click += new System.EventHandler(this.deleteUser_Click);
+            // 
+            // userPasswordTextbox
+            // 
+            this.userPasswordTextbox.Location = new System.Drawing.Point(13, 24);
+            this.userPasswordTextbox.Name = "userPasswordTextbox";
+            this.userPasswordTextbox.Size = new System.Drawing.Size(171, 20);
+            this.userPasswordTextbox.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(59, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Insira sua senha";
             // 
             // UserInfoPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 332);
+            this.Controls.Add(this.deleteUserPanel);
             this.Controls.Add(this.alterDataPanel);
             this.Controls.Add(this.alterUserPasswordPanel);
             this.Controls.Add(this.checkPasswordPanel);
             this.Controls.Add(this.usernameLabel);
-            this.Controls.Add(this.DeleteUser);
+            this.Controls.Add(this.DeleteUserButton);
             this.Controls.Add(this.alterDataButton);
             this.Controls.Add(this.alterPasswordButton);
             this.Controls.Add(this.dateLabel);
@@ -344,6 +405,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "UserInfoPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserInfoPage";
@@ -354,6 +416,8 @@
             this.alterUserPasswordPanel.PerformLayout();
             this.alterDataPanel.ResumeLayout(false);
             this.alterDataPanel.PerformLayout();
+            this.deleteUserPanel.ResumeLayout(false);
+            this.deleteUserPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +433,7 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Button alterPasswordButton;
         private System.Windows.Forms.Button alterDataButton;
-        private System.Windows.Forms.Button DeleteUser;
+        private System.Windows.Forms.Button DeleteUserButton;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Panel checkPasswordPanel;
         private System.Windows.Forms.Button checkPassword;
@@ -385,5 +449,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel deleteUserPanel;
+        private System.Windows.Forms.CheckBox deleteUserCheck;
+        private System.Windows.Forms.Button deleteUser;
+        private System.Windows.Forms.TextBox userPasswordTextbox;
+        private System.Windows.Forms.Label label10;
     }
 }

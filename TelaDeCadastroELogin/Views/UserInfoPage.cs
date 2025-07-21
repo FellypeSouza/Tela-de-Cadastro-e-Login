@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TelaDeCadastroELogin.Controllers;
@@ -39,6 +40,7 @@ namespace TelaDeCadastroELogin.Views
 
             Ctr_User = new Ctr_User();
             Ctr_User.AlterPassword(user);
+            RefreshUserInfo();
         }
 
         private void alterDataButton_Click(object sender, EventArgs e)
@@ -46,9 +48,9 @@ namespace TelaDeCadastroELogin.Views
             alterDataPanel.Visible = true;
         }
 
-        private void DeleteUser_Click(object sender, EventArgs e)
+        private void DeleteUserButton_Click(object sender, EventArgs e)
         {
-
+            deleteUserPanel.Visible = true;
         }
 
         private void checkPassword_Click(object sender, EventArgs e)
@@ -89,6 +91,7 @@ namespace TelaDeCadastroELogin.Views
                     Ctr_User.AlterPassword(user);
                     MessageBox.Show("Senha alterada com sucesso");
                     alterUserPasswordPanel.Visible = false;
+                    RefreshUserInfo();
                 }
                 else
                 {
@@ -112,8 +115,8 @@ namespace TelaDeCadastroELogin.Views
                     if (user.GetPassword() == passwordTextbox.Text)
                     {
                         Ctr_User.AlterData(user);
-
                         alterDataPanel.Visible = false;
+                        RefreshUserInfo();
                     }
                     else
                     {
@@ -124,6 +127,50 @@ namespace TelaDeCadastroELogin.Views
                 {
                     MessageBox.Show("Senha incorreta");
                 }
+            }
+        }
+
+        private void deleteUser_Click(object sender, EventArgs e)
+        {
+            if (userPasswordTextbox.Text == "")
+            {
+                MessageBox.Show("Input vazio");
+            }
+            else
+            {
+                if(deleteUserCheck.Checked)
+                {
+                    if (user.GetPassword() == userPasswordTextbox.Text)
+                    {
+                        Ctr_User.DeleteUser(user);
+                        user = null;
+                        RefreshUserInfo();
+                        deleteUserPanel.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha incorreta");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Confirmação necessária");
+                }
+            }
+        }
+        public void RefreshUserInfo()
+        {
+            if(user == null)
+            {
+                usernameLabel.Text = "Sem cadastro";
+                passwordLabel.Text = "Sem cadastro";
+                dateLabel.Text = "Sem cadastro";
+            }
+            else
+            {
+                usernameLabel.Text = user.GetName();
+                passwordLabel.Text = user.GetPassword();
+                dateLabel.Text = user.GetDate().ToString();
             }
         }
     }
