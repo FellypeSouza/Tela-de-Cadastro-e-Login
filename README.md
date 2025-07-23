@@ -3,7 +3,6 @@
   <p>
     Esse projeto consiste eum um pequeno programa feito em C# Windows Forms tendo como principal objetivo o cadastro de usuários. Além disso teve como objetivo
     relembrar alguns conceitos de criação e integração a um Banco de Dados, estudar um pouco mais a respeito do padrão de desenvolvimento MVC e exercitar a lógica de programação.
-    Acesse <a href="https://github.com/FellypeSouza/Tela-de-Cadastro-e-Login/" target="_blank">aqui</a>.
   </p>
   <h1>⚙️ Tecnologias utilizadas</h1>
   <ul>
